@@ -61,19 +61,19 @@ Ensure the Redis server is running. If Redis is installed locally:
 1. Enqueue Tasks
 Run the following command to enqueue tasks into the simple_task_queue:
 ```
-python script.py enqueue <num_tasks>
+python worker_multiprocessing.py.py enqueue <num_tasks>
 Replace <num_tasks> with the number of tasks to enqueue. For example:
-python script.py enqueue 10
+python worker_multiprocessing.py.py enqueue 10
 
 ```
 2. Start Workers
 ```
 Start multiple worker processes to process tasks concurrently:
 
-python script.py workers <num_workers>
+python worker_multiprocessing.py.py workers <num_workers>
 Replace <num_workers> with the number of worker processes. For example:
 
-python script.py workers 4
+python worker_multiprocessing.py.py workers 4
 ```
 3. Monitor Tasks
 ```
@@ -89,7 +89,8 @@ Open the dashboard in your browser at http://localhost:9181.
 Project Structure
 ```
 .
-├── script.py                     # Main script for enqueuing tasks and starting workers
+├── worker_multiprocessing.py     # Main script for enqueuing tasks and starting workers
+├── worker.py                     # Main script for enqueuing tasks and starting workers
 ├── database/
 │   ├── connect_db.py             # Database connection module
 │   ├── update_playground_task_tracker.py  # Module for task database updates
